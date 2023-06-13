@@ -16,27 +16,10 @@ def run_discord_bot():
         await bot.change_presence(activity=activity, status=discord.Status.online)
         logger.info(f"User: {bot.user.name} (ID: {bot.user.id})")
 
-    @bot.command(
-        aliases = ['cf'],
-        help = "This is help",
-        description = "This is description",
-        brief = "This is brief"
-    )
-    async def coinflip(ctx):
-        """ Toss a coin """
-        import random
-        num = random.randint(1, 100)
+        for cmd_file in settings.CMDS_DIR.glob("*.py"):
+            if cmd_file.name !=  "__init__.py":
+                await bot.load_extension(f"commands.{cmd_file.name[:-3]}")
 
-        if num < 49:
-            await ctx.reply("heads")
-        elif num >= 50:
-            await ctx.reply("tails")
-        else:
-            await ctx.reply("something went wrong..")
-
-        # for filename in os.listdir('./commands'):
-        #     if filename.endswith('.py'):
-        #         print(filename)
-        #         await bot.load_extension(f'commands.{filename[:-3]}')
+        # await bot.load_extension("cogs.greetings")
 
     bot.run(settings.SECRET, root_logger=True)
