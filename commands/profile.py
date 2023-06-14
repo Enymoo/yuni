@@ -46,9 +46,5 @@ async def profile(ctx, member: discord.Member = None):
 
         await ctx.send(embed=embed)
 
-@profile.command()
-async def color(ctx, color):
-    pass 
-
 async def setup(bot):
     bot.add_command(profile)
