@@ -22,7 +22,7 @@ async def register(ctx):
             rows = cursor.fetchall()
             if rows:
                 await ctx.reply("You are already registed!")
-                raise 
+                raise Exception("You are already registered!")
 
             sql = "INSERT INTO users (userid, balance) VALUES (%s, %s)"
             values = (int(ctx.author.id), 0)
