@@ -3,9 +3,9 @@ import random
 
 @commands.command(
     aliases = ['cf'],
-    help = "This is help",
-    description = "This is description",
-    brief = "This is brief"
+    help = "Flip a coin to determine heads or tails!",
+    description = "**Coinflip**",
+    brief = "Flip a coin!"
 )
 async def coinflip(ctx):
     num = random.randint(1, 100)

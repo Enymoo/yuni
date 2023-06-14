@@ -24,8 +24,8 @@ async def register(ctx):
                 await ctx.reply("You are already registed!")
                 raise Exception("You are already registered!")
 
-            sql = "INSERT INTO users (userid, balance) VALUES (%s, %s)"
-            values = (int(ctx.author.id), 0)
+            sql = "INSERT INTO users (userid, balance, color) VALUES (%s, %s, %s)"
+            values = (int(ctx.author.id), 0, "#000000")
             cursor.execute(sql, values) 
             
             connection.commit()
