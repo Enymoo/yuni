@@ -6,6 +6,10 @@ import discord
 load_dotenv()
 
 SECRET = os.getenv("DISCORD_TOKEN")
+HOST = os.getenv("HOST")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+DATABASE = os.getenv("DATABASE")
 BASE_DIR = pathlib.Path(__file__).parent
 CMDS_DIR = BASE_DIR / "commands"
 # COGS_DIR = BASE_DIR / "cogs"
